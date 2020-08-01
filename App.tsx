@@ -1,19 +1,30 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+
+import { ApolloProvider } from '@apollo/react-hooks';
+
+import { useFonts } from '@use-expo/font';
+import { AppLoading } from 'expo';
+import {
+  Quicksand_400Regular,
+  Quicksand_600SemiBold,
+} from '@expo-google-fonts/quicksand';
+
+import client from './api/client';
+import Routers from './routers';
 
 export default function App() {
+  let [fontsLoaded] = useFonts({
+    Quicksand_400Regular,
+    Quicksand_600SemiBold,
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
+    <ApolloProvider client={client}>
+      <Routers />
+    </ApolloProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
