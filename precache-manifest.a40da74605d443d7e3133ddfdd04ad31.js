@@ -1,15 +1,15 @@
 self.__precacheManifest = [
   {
-    "revision": "8daefe2b4e7bd059812c",
-    "url": "/cookapp/static/js/app.5afe2eaa.chunk.js"
+    "revision": "a861989068519db39f65",
+    "url": "/cookapp/static/js/app.b27e0f31.chunk.js"
   },
   {
     "revision": "b9df450fb1dd2c95c91c",
     "url": "/cookapp/static/js/runtime~app.d1296147.js"
   },
   {
-    "revision": "c775440a7bf7a6526900",
-    "url": "/cookapp/static/js/2.f6dde411.chunk.js"
+    "revision": "99c6fbe4f33c735e2a5d",
+    "url": "/cookapp/static/js/2.115ad9a9.chunk.js"
   },
   {
     "revision": "744ce60078c17d86006dd0edabcd59a7",
@@ -92,12 +92,12 @@ self.__precacheManifest = [
     "url": "/cookapp/./fonts/SimpleLineIcons.ttf"
   },
   {
-    "revision": "ec543248d7b23864564429fc03837190",
-    "url": "/cookapp/serve.json"
-  },
-  {
     "revision": "48c7ed4e7da9792af288a60d7242d615",
     "url": "/cookapp/expo-service-worker.js"
+  },
+  {
+    "revision": "ec543248d7b23864564429fc03837190",
+    "url": "/cookapp/serve.json"
   },
   {
     "revision": "afd5733ac789ab1795f1ed7a26e1ecd3",
@@ -112,7 +112,7 @@ self.__precacheManifest = [
     "url": "/cookapp/favicon.ico"
   },
   {
-    "revision": "f1ba67aae3b6966da1dd349512cd8114",
+    "revision": "309a8b4b35ac4604dc6bf20998f575a2",
     "url": "/cookapp/index.html"
   },
   {
