@@ -1,0 +1,41 @@
+{
+  "files": {
+    "app.js": "/cookapp/static/js/app.5afe2eaa.chunk.js",
+    "app.js.map": "/cookapp/static/js/app.5afe2eaa.chunk.js.map",
+    "runtime~app.js": "/cookapp/static/js/runtime~app.d1296147.js",
+    "runtime~app.js.map": "/cookapp/static/js/runtime~app.d1296147.js.map",
+    "static/js/2.f6dde411.chunk.js": "/cookapp/static/js/2.f6dde411.chunk.js",
+    "static/js/2.f6dde411.chunk.js.map": "/cookapp/static/js/2.f6dde411.chunk.js.map",
+    "fonts/AntDesign.ttf": "/cookapp/./fonts/AntDesign.ttf",
+    "fonts/Entypo.ttf": "/cookapp/./fonts/Entypo.ttf",
+    "fonts/Feather.ttf": "/cookapp/./fonts/Feather.ttf",
+    "fonts/FontAwesome.ttf": "/cookapp/./fonts/FontAwesome.ttf",
+    "fonts/FontAwesome5_Brands.ttf": "/cookapp/./fonts/FontAwesome5_Brands.ttf",
+    "fonts/FontAwesome5_Solid.ttf": "/cookapp/./fonts/FontAwesome5_Solid.ttf",
+    "fonts/Fontisto.ttf": "/cookapp/./fonts/Fontisto.ttf",
+    "fonts/Foundation.ttf": "/cookapp/./fonts/Foundation.ttf",
+    "fonts/Ionicons.ttf": "/cookapp/./fonts/Ionicons.ttf",
+    "fonts/MaterialCommunityIcons.ttf": "/cookapp/./fonts/MaterialCommunityIcons.ttf",
+    "fonts/MaterialIcons.ttf": "/cookapp/./fonts/MaterialIcons.ttf",
+    "fonts/Quicksand_300Light.ttf": "/cookapp/./fonts/Quicksand_300Light.ttf",
+    "fonts/Quicksand_400Regular.ttf": "/cookapp/./fonts/Quicksand_400Regular.ttf",
+    "fonts/Quicksand_500Medium.ttf": "/cookapp/./fonts/Quicksand_500Medium.ttf",
+    "fonts/Quicksand_600SemiBold.ttf": "/cookapp/./fonts/Quicksand_600SemiBold.ttf",
+    "fonts/Quicksand_700Bold.ttf": "/cookapp/./fonts/Quicksand_700Bold.ttf",
+    "fonts/SimpleLineIcons.ttf": "/cookapp/./fonts/SimpleLineIcons.ttf",
+    "favicon-16.png": "/cookapp/favicon-16.png",
+    "favicon-32.png": "/cookapp/favicon-32.png",
+    "favicon.ico": "/cookapp/favicon.ico",
+    "index.html": "/cookapp/index.html",
+    "manifest.json": "/cookapp/manifest.json",
+    "serve.json": "/cookapp/serve.json",
+    "static/media/an-sang.jpg": "/cookapp/static/media/an-sang.9da58588.jpg",
+    "static/media/an-toi.jpg": "/cookapp/static/media/an-toi.f989c8e1.jpg",
+    "static/media/an-trua.png": "/cookapp/static/media/an-trua.d0ff5dd1.png"
+  },
+  "entrypoints": [
+    "static/js/runtime~app.d1296147.js",
+    "static/js/2.f6dde411.chunk.js",
+    "static/js/app.5afe2eaa.chunk.js"
+  ]
+}
