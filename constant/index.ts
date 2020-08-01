@@ -1,5 +1,15 @@
 import { Dimensions } from 'react-native';
 
+// url
+const isProduct = process.env.NODE_ENV === 'production';
+const apiUrl = !isProduct
+  ? 'http://localhost:8080'
+  : 'https://apicook.herokuapp.com';
+
+const URLS = {
+  api: apiUrl,
+};
+
 // color
 const COLORS = {
   blue: '#034694',
@@ -22,4 +32,4 @@ const SIZES = {
   HEIGHT_SCREEN: Math.round(Dimensions.get('window').height),
 };
 
-export { FONTS, SIZES, COLORS };
+export { FONTS, SIZES, COLORS, URLS };
