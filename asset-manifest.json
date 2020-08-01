@@ -1,7 +1,7 @@
 {
   "files": {
-    "app.js": "/cookapp/static/js/app.b27e0f31.chunk.js",
-    "app.js.map": "/cookapp/static/js/app.b27e0f31.chunk.js.map",
+    "app.js": "/cookapp/static/js/app.c85aa39a.chunk.js",
+    "app.js.map": "/cookapp/static/js/app.c85aa39a.chunk.js.map",
     "runtime~app.js": "/cookapp/static/js/runtime~app.d1296147.js",
     "runtime~app.js.map": "/cookapp/static/js/runtime~app.d1296147.js.map",
     "static/js/2.115ad9a9.chunk.js": "/cookapp/static/js/2.115ad9a9.chunk.js",
@@ -36,6 +36,6 @@
   "entrypoints": [
     "static/js/runtime~app.d1296147.js",
     "static/js/2.115ad9a9.chunk.js",
-    "static/js/app.b27e0f31.chunk.js"
+    "static/js/app.c85aa39a.chunk.js"
   ]
 }
