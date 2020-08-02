@@ -1,10 +1,12 @@
 import React, { FC } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 
 import { Text } from '../../components';
+import { useNavigation } from '@react-navigation/native';
 
 const CardCategory: FC<any> = ({ category }) => {
+  const navigation = useNavigation();
   return (
     <View style={styles.wrap}>
       <View style={styles.title}>
@@ -14,9 +16,17 @@ const CardCategory: FC<any> = ({ category }) => {
       <FlatList
         data={category.cates}
         renderItem={({ item }: any) => (
-          <View style={styles.title}>
+          <TouchableOpacity
+            style={styles.title}
+            onPress={() => {
+              navigation.navigate('CategorieChild', {
+                title: item,
+                cate: item,
+              });
+            }}
+          >
             <Text>{item}</Text>
-          </View>
+          </TouchableOpacity>
         )}
         keyExtractor={(item: string) => item}
       />

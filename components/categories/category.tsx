@@ -11,7 +11,11 @@ interface Props {
 const Category: FC<Props> = ({ category }) => {
   const navigation = useNavigation();
 
-  const handlePress = () => navigation.navigate('Categories');
+  const handlePress = () =>
+    navigation.navigate('CategorieChild', {
+      title: category.title,
+      cate: category.id,
+    });
 
   return (
     <TouchableOpacity onPress={handlePress}>

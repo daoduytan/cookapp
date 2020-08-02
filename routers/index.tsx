@@ -23,7 +23,13 @@ function Routers() {
           })}
         />
         <Stack.Screen name="Detail" component={DetailScreen} />
-        <Stack.Screen name="Categories" component={Categories} />
+        <Stack.Screen
+          name="Categories"
+          component={Categories}
+          options={() => ({
+            headerTitle: 'Danh mục',
+          })}
+        />
         <Stack.Screen name="CategorieChild" component={CategorieChild} />
         <Stack.Screen
           name="SearchScreen"
