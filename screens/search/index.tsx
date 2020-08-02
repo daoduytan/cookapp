@@ -7,8 +7,8 @@ import { ListFood } from '../../components';
 import SearchBox from './search-box';
 
 const SEARCH_DISHS = gql`
-  mutation searchDishs($text: String!) {
-    searchDishs(text: $text) {
+  mutation searchDishs($text: String!, $page: Float!) {
+    searchDishs(text: $text, page: $page) {
       dishs {
         title
         id
@@ -23,6 +23,8 @@ const SEARCH_DISHS = gql`
 
 function SearchScreen() {
   const [page, setPage] = useState(1);
+  const [pages, setPages] = useState(1);
+  const [dishs, setDishs] = useState([]);
   const [searchDishs, { data, loading }] = useMutation(SEARCH_DISHS);
   const [text, setText] = useState<string>('');
 
@@ -31,21 +33,25 @@ function SearchScreen() {
     searchDishs({
       variables: {
         text: string,
+        page: page,
       },
-    }).then(() => {
+    }).then(({ data }: { data: any }) => {
+      setDishs(data.searchDishs.dishs);
+      setPages(data.searchDishs.pages);
       setPage(1);
     });
   };
 
   const loadMore = () => {
     searchDishs({
-      variables: { text },
-    }).then((): void => {
+      variables: { text, page: page + 1 },
+    }).then(({ data }: { data: any }): void => {
+      setDishs([...dishs, ...data.searchDishs.dishs]);
       setPage(page + 1);
+      setPages(data.searchDishs.pages);
     });
   };
 
-  const dishs = data ? data.searchDishs.dishs : [];
   const total = data ? data.searchDishs.total : undefined;
 
   return (
@@ -55,6 +61,7 @@ function SearchScreen() {
         <ListFood
           dishs={dishs}
           page={page}
+          pages={pages}
           loadMore={loadMore}
           loading={loading}
           total={total}

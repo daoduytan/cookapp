@@ -56,18 +56,4 @@ const NewFoods = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  wrap: {
-    padding: 5,
-    flexGrow: 1,
-  },
-  card: {
-    width: (SIZES.WIDTH_SCREEN - 10) / 2,
-    padding: 10,
-  },
-  button: {
-    padding: 15,
-  },
-});
-
 export default NewFoods;

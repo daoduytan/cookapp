@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text, ActivityIndicator } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { useRoute, useNavigation } from '@react-navigation/native';
@@ -7,8 +7,8 @@ import { useMutation } from '@apollo/react-hooks';
 import { ListFood } from '../../components';
 
 const SEARCH_DISHS_WITH_CATE = gql`
-  mutation searchDishsWithCate($cate: String!) {
-    searchDishsWithCate(cate: $cate) {
+  mutation searchDishsWithCate($cate: String!, $page: Float!) {
+    searchDishsWithCate(cate: $cate, page: $page) {
       dishs {
         title
         id
@@ -22,9 +22,13 @@ const SEARCH_DISHS_WITH_CATE = gql`
 `;
 
 function CategorieChild() {
+  const [pages, setPages] = useState(1);
+  const [page, setPage] = useState<number>(1);
+  const [dishs, setDishs] = useState([]);
   const navigation = useNavigation();
   const route = useRoute<any>();
-  const [searchDishsWithCate, { data, loading }] = useMutation(
+
+  const [searchDishsWithCate, { loading }] = useMutation(
     SEARCH_DISHS_WITH_CATE
   );
 
@@ -34,19 +38,34 @@ function CategorieChild() {
 
   navigation.setOptions({ title });
 
-  const loadMore = () => {};
+  const loadMore = () => {
+    searchDishsWithCate({
+      variables: { cate: route.params.cate, page: page + 1 },
+    }).then(({ data }: { data: any }) => {
+      setDishs(data.searchDishsWithCate.dishs);
+      setPage(page + 1);
+    });
+  };
 
   useEffect(() => {
     if (route.params.title) {
       searchDishsWithCate({
-        variables: { cate: route.params.cate },
+        variables: { cate: route.params.cate, page },
+      }).then(({ data }: { data: any }) => {
+        setDishs(data.searchDishsWithCate.dishs);
       });
     }
   }, []);
 
-  const dishs = data ? data.searchDishsWithCate.dishs : [];
-
-  return <ListFood dishs={dishs} loading={loading} loadMore={loadMore} />;
+  return (
+    <ListFood
+      dishs={dishs}
+      loading={loading}
+      loadMore={loadMore}
+      pages={pages}
+      page={page}
+    />
+  );
 }
 
 export default CategorieChild;
