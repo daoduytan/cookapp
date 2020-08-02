@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/cookapp/precache-manifest.337da5ed6afbaeb232e385b26af8ad89.js"
+  "/cookapp/precache-manifest.4012bd2e0daaf3ef78a26018fb8159b8.js"
 );
 
 workbox.skipWaiting();
