@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "fdc63b03984e04d3d4a2",
-    "url": "/cookapp/static/js/app.f2df70f3.chunk.js"
+    "revision": "bd0cf0d44b0ad9abcfaa",
+    "url": "/cookapp/static/js/app.4037a989.chunk.js"
   },
   {
     "revision": "b9df450fb1dd2c95c91c",
@@ -92,12 +92,12 @@ self.__precacheManifest = [
     "url": "/cookapp/./fonts/SimpleLineIcons.ttf"
   },
   {
-    "revision": "ec543248d7b23864564429fc03837190",
-    "url": "/cookapp/serve.json"
-  },
-  {
     "revision": "48c7ed4e7da9792af288a60d7242d615",
     "url": "/cookapp/expo-service-worker.js"
+  },
+  {
+    "revision": "ec543248d7b23864564429fc03837190",
+    "url": "/cookapp/serve.json"
   },
   {
     "revision": "afd5733ac789ab1795f1ed7a26e1ecd3",
@@ -112,7 +112,7 @@ self.__precacheManifest = [
     "url": "/cookapp/favicon.ico"
   },
   {
-    "revision": "37c744310df0f59ec05e075162554715",
+    "revision": "a5113f14a51357713bdfbeaead2f2848",
     "url": "/cookapp/index.html"
   },
   {
