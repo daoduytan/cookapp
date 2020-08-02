@@ -1,15 +1,15 @@
 self.__precacheManifest = [
   {
-    "revision": "d94bd2317dd3a7f0de6e",
-    "url": "/cookapp/static/js/app.c85aa39a.chunk.js"
+    "revision": "c41032b963225986fdca",
+    "url": "/cookapp/static/js/app.e90713ce.chunk.js"
   },
   {
     "revision": "b9df450fb1dd2c95c91c",
     "url": "/cookapp/static/js/runtime~app.d1296147.js"
   },
   {
-    "revision": "99c6fbe4f33c735e2a5d",
-    "url": "/cookapp/static/js/2.115ad9a9.chunk.js"
+    "revision": "cdd6b281f662213ea640",
+    "url": "/cookapp/static/js/2.24c3b336.chunk.js"
   },
   {
     "revision": "744ce60078c17d86006dd0edabcd59a7",
@@ -112,7 +112,7 @@ self.__precacheManifest = [
     "url": "/cookapp/favicon.ico"
   },
   {
-    "revision": "d6cbf45dfa3fa36d1370f8bc911430f2",
+    "revision": "dc97d395d9254466086f966d1c9021af",
     "url": "/cookapp/index.html"
   },
   {
