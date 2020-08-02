@@ -1,6 +1,6 @@
-import React, { FC, memo } from 'react';
-import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import React, { FC, memo } from 'react';
+import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 import { Text } from '..';
 
@@ -41,17 +41,15 @@ const CardFood: FC<Props> = ({ food, style }) => {
 
 const styles = StyleSheet.create({
   card: {
-    borderWidth: 1,
-    borderColor: '#eee',
-    borderRadius: 5,
     overflow: 'hidden',
   },
   img: {
     backgroundColor: '#eee',
-    height: 120,
+    height: 170,
+    borderRadius: 10,
   },
   text_wrap: {
-    padding: 10,
+    paddingVertical: 10,
   },
   text: {},
 });

@@ -1,9 +1,16 @@
-import React, { FC } from 'react';
-import { View, Image, StyleSheet, FlatList } from 'react-native';
-import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import { gql } from 'apollo-boost';
+import React, { FC } from 'react';
+import {
+  ActivityIndicator,
+  FlatList,
+  Image,
+  StyleSheet,
+  View,
+} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+
 import { Text } from '../../components';
 import { COLORS } from '../../constant';
 
@@ -34,100 +41,125 @@ const DetailsScreen: FC = () => {
   });
 
   if (loading) {
-    return <Text>Loading</Text>;
+    return (
+      <View
+        style={[
+          styles.wrap,
+          { alignItems: 'center', justifyContent: 'center' },
+        ]}
+      >
+        <ActivityIndicator />
+      </View>
+    );
   }
-  if (!data) return <Text>No dish</Text>;
+  if (!data)
+    return (
+      <View
+        style={[
+          styles.wrap,
+          { alignItems: 'center', justifyContent: 'center' },
+        ]}
+      >
+        <Text>No dish</Text>
+      </View>
+    );
 
   const { dish } = data;
 
   return (
-    <ScrollView>
-      <Image
-        style={styles.img}
-        source={{
-          uri: dish.recipeImage,
-        }}
-        resizeMode="cover"
-      />
+    <View style={styles.wrap}>
+      <ScrollView>
+        <Image
+          style={styles.img}
+          source={{
+            uri: dish.recipeImage,
+          }}
+          resizeMode="cover"
+        />
 
-      <View style={styles.content}>
-        <View style={styles.top} />
-        <View style={[styles.section, styles.border]}>
-          <Text
-            style={{
-              fontSize: 20,
-              marginBottom: 15,
-              lineHeight: 25,
-              color: COLORS.blue,
-            }}
-            type="bold"
-          >
-            {dish.title}
-          </Text>
-          {dish.description.length > 0 && <Text>{dish.description}</Text>}
-        </View>
-
-        <View style={[styles.section, styles.border]}>
-          <Text type="bold" style={{ marginBottom: 10 }}>
-            Nguyên liệu:
-          </Text>
-          {dish.ingredients.map((i: string) => (
-            <View style={{ marginBottom: 7, flexDirection: 'row' }}>
-              <View style={[styles.dot]} />
-              <View style={{ flex: 1 }}>
-                <Text key={i}>{i}</Text>
-              </View>
-            </View>
-          ))}
-        </View>
-
-        <View style={[styles.section]}>
-          <Text type="bold" style={{ marginBottom: 10 }}>
-            Cách làm:
-          </Text>
-          {dish.steps.map((step: any, index: number) => (
-            <View
-              key={step.text}
-              style={{ marginBottom: 10, flexDirection: 'row' }}
+        <View style={styles.content}>
+          <View style={styles.top} />
+          <View style={[styles.section, styles.border]}>
+            <Text
+              style={{
+                fontSize: 20,
+                marginBottom: 15,
+                lineHeight: 25,
+                color: COLORS.blue,
+              }}
+              type="bold"
             >
-              <View style={[styles.dot]} />
-              <View style={{ flex: 1 }}>
-                <Text style={{ marginBottom: 7 }}>{step.text}</Text>
+              {dish.title}
+            </Text>
+            {dish.description.length > 0 && <Text>{dish.description}</Text>}
+          </View>
 
-                <FlatList
-                  data={step.imgs}
-                  horizontal
-                  renderItem={({ item }: { item: string }) => {
-                    return (
-                      <Image
-                        key={item}
-                        style={{
-                          height: 120,
-                          width: 120,
-                          borderRadius: 10,
-                          marginRight: 10,
-                        }}
-                        source={{
-                          uri: item,
-                        }}
-                        resizeMode="cover"
-                      />
-                    );
-                  }}
-                  keyExtractor={(item) => item}
-                />
+          <View style={[styles.section, styles.border]}>
+            <Text type="bold" style={{ marginBottom: 10 }}>
+              Nguyên liệu:
+            </Text>
+            {dish.ingredients.map((i: string) => (
+              <View style={{ marginBottom: 7, flexDirection: 'row' }} key={i}>
+                <View style={[styles.dot]} />
+                <View style={{ flex: 1 }}>
+                  <Text key={i}>{i}</Text>
+                </View>
               </View>
-            </View>
-          ))}
+            ))}
+          </View>
+
+          <View style={[styles.section]}>
+            <Text type="bold" style={{ marginBottom: 10 }}>
+              Cách làm:
+            </Text>
+            {dish.steps.map((step: any, index: number) => (
+              <View
+                key={step.text}
+                style={{ marginBottom: 10, flexDirection: 'row' }}
+              >
+                <View style={[styles.dot]} />
+                <View style={{ flex: 1 }}>
+                  <Text style={{ marginBottom: 7 }}>{step.text}</Text>
+
+                  <FlatList
+                    data={step.imgs}
+                    horizontal
+                    renderItem={({ item }: { item: string }) => {
+                      return (
+                        <Image
+                          key={item}
+                          style={{
+                            height: 120,
+                            width: 120,
+                            borderRadius: 10,
+                            marginRight: 10,
+                          }}
+                          source={{
+                            uri: item,
+                          }}
+                          resizeMode="cover"
+                        />
+                      );
+                    }}
+                    keyExtractor={(item) => item}
+                  />
+                </View>
+              </View>
+            ))}
+          </View>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 };
 
 const size_dot = 8;
 
 const styles = StyleSheet.create({
+  wrap: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
   img: {
     height: 300,
   },

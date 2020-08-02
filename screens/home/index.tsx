@@ -13,8 +13,9 @@ function HomeScreen({ navigation }: any) {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1 }}>
       <ScrollView
+        style={{ backgroundColor: '#fff', flex: 1 }}
         contentContainerStyle={{
           flex: 1,
           backgroundColor: '#fff',

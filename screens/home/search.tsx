@@ -1,9 +1,10 @@
-import React from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
-import { Input, Text } from '../../components';
-import { SIZES } from '../../constant';
 import { useNavigation } from '@react-navigation/native';
+import React from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+
+import { Text } from '../../components';
+import { SIZES } from '../../constant';
 
 const Search = () => {
   const navigation = useNavigation();

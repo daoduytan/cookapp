@@ -22,6 +22,7 @@ const COLORS = {
 const FONTS = {
   FONT_FAMILY_REGULAR: 'Quicksand_400Regular',
   FONT_FAMILY_SEMIBOLD: 'Quicksand_600SemiBold',
+  FONT_SIZE_REGULAR: 15,
 };
 
 // size

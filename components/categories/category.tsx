@@ -20,7 +20,7 @@ const Category: FC<Props> = ({ category }) => {
           <Image style={styles.img} source={category.img} />
         </View>
         <View style={styles.wrap_text}>
-          <Text style={styles.text} type="bold">
+          <Text style={{ fontSize: 16 }} type="bold">
             {category.title}
           </Text>
         </View>

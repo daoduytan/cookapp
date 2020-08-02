@@ -1,60 +1,60 @@
-import React from 'react';
-import { View, StyleSheet, FlatList } from 'react-native';
-
-import { CardFood, Button, Text } from '../../components';
-import { SIZES } from '../../constant';
+import { useMutation } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
-import { useQuery } from '@apollo/react-hooks';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet } from 'react-native';
+
+import { ListFood } from '../../components';
+import { SIZES } from '../../constant';
 
 const NEW_DISH_QUERY = gql`
-  query dishs {
-    dishs {
-      id
-      recipeImage
-      title
+  mutation getDishs($page: Float!) {
+    getDishs(page: $page) {
+      dishs {
+        id
+        recipeImage
+        title
+      }
+      page
+      pages
     }
   }
 `;
 
 const NewFoods = () => {
-  const { data, loading } = useQuery(NEW_DISH_QUERY);
-  if (loading)
-    return (
-      <View>
-        <Text>Loading</Text>
-      </View>
-    );
+  const [page, setPage] = useState(1);
+  const [dishs, setDishs] = useState([]);
+  const [getDishs, { loading }] = useMutation(NEW_DISH_QUERY);
 
-  console.log('data', data);
+  const loadMore = () => {
+    getDishs({
+      variables: { page },
+    }).then(({ data }: { data: any }): void => {
+      setDishs([...dishs, ...data.getDishs.dishs]);
+      setPage(page + 1);
+    });
+  };
+
+  useEffect(() => {
+    getDishs({
+      variables: { page },
+    }).then(({ data }: { data: any }): void => {
+      setDishs(data.getDishs.dishs);
+    });
+  }, []);
+
   return (
-    <>
-      <FlatList
-        contentContainerStyle={styles.wrap}
-        data={data.dishs || []}
-        renderItem={({ item }) => (
-          <View style={styles.card}>
-            <CardFood food={item} style={{ flex: 1 }} />
-          </View>
-        )}
-        keyExtractor={(item) => item.id}
-        numColumns={2}
-      />
-
-      <View style={styles.button}>
-        <Button title="Xem thêm" onPress={() => {}} />
-      </View>
-    </>
+    <ListFood page={page} loading={loading} dishs={dishs} loadMore={loadMore} />
   );
 };
 
 const styles = StyleSheet.create({
   wrap: {
-    padding: 10,
+    padding: 5,
     flexGrow: 1,
   },
   card: {
-    width: (SIZES.WIDTH_SCREEN - 20) / 2,
-    padding: 5,
+    width: (SIZES.WIDTH_SCREEN - 10) / 2,
+    padding: 10,
   },
   button: {
     padding: 15,

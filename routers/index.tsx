@@ -25,7 +25,13 @@ function Routers() {
         <Stack.Screen name="Detail" component={DetailScreen} />
         <Stack.Screen name="Categories" component={Categories} />
         <Stack.Screen name="CategorieChild" component={CategorieChild} />
-        <Stack.Screen name="SearchScreen" component={SearchScreen} />
+        <Stack.Screen
+          name="SearchScreen"
+          component={SearchScreen}
+          options={() => ({
+            header: () => null,
+          })}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
