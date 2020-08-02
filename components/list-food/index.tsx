@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { ActivityIndicator, FlatList, StyleSheet, View } from 'react-native';
 
 import { Button, CardFood, Text } from '..';
-import { SIZES, COLORS } from '../../constant';
+import { COLORS, SIZES } from '../../constant';
 
 interface Props {
   loading: boolean;
@@ -33,6 +33,7 @@ const ListFoods: FC<Props> = ({
         </View>
       );
     }
+
     if (dishs.length === 0 || pages === page) return <View />;
 
     return (

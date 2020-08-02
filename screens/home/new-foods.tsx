@@ -23,14 +23,16 @@ const NEW_DISH_QUERY = gql`
 const NewFoods = () => {
   const [page, setPage] = useState(1);
   const [dishs, setDishs] = useState([]);
+  const [pages, setPages] = useState(1);
   const [getDishs, { loading }] = useMutation(NEW_DISH_QUERY);
 
   const loadMore = () => {
     getDishs({
-      variables: { page },
+      variables: { page: page + 1 },
     }).then(({ data }: { data: any }): void => {
       setDishs([...dishs, ...data.getDishs.dishs]);
       setPage(page + 1);
+      setPages(data.getDishs.pages);
     });
   };
 
@@ -39,11 +41,18 @@ const NewFoods = () => {
       variables: { page },
     }).then(({ data }: { data: any }): void => {
       setDishs(data.getDishs.dishs);
+      setPages(data.getDishs.pages);
     });
   }, []);
 
   return (
-    <ListFood page={page} loading={loading} dishs={dishs} loadMore={loadMore} />
+    <ListFood
+      page={page}
+      pages={pages}
+      loading={loading}
+      dishs={dishs}
+      loadMore={loadMore}
+    />
   );
 };
 

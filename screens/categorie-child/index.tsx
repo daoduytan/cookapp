@@ -28,7 +28,11 @@ function CategorieChild() {
     SEARCH_DISHS_WITH_CATE
   );
 
-  navigation.setOptions({ title: route.params.title });
+  const string = (route.params.title as string).toLowerCase();
+
+  const title = string.charAt(0).toUpperCase() + string.slice(1);
+
+  navigation.setOptions({ title });
 
   const loadMore = () => {};
 
